@@ -1,7 +1,7 @@
 public class MainClass {
     public static void main(String[] args) {
-        XiClass xiClass = new XiClass();
-        System.out.println("***Модель появления прохожих. Интервалы между моментами появления***".toUpperCase());
+      XiClass xiClass = new XiClass();
+       /*   System.out.println("***Модель появления прохожих. Интервалы между моментами появления***".toUpperCase());
         DistributionAbstract distributionX1 = new DistributionX1(xiClass.getX1(), xiClass.getX1().size());
         // distributionX1.generateQuantity(xiClass.getPersonQuantity(),xiClass.getX1().size());
         ((DistributionX1) distributionX1).generateQuantityByDefault();
@@ -26,6 +26,21 @@ public class MainClass {
         System.out.println("Варианты ответов да-1/нет-0 " + distributionX2.getInitialX());
         System.out.println("Кол-во ответов" + distributionX2.getQuatity());
         System.out.println("Вероятность" + distributionX2.getP(distributionX2.getQuatity(), xiClass.getPersonQuantity())+"\n");
+
+*/
+        DistributionAbstract distributionX = new ModelingAbstract(xiClass.getX1(), xiClass.getX1().size(),new DestributionByDefault().getQuantityX1());
+     //  distributionX.generateQuantity(xiClass.getPersonQuantity(),xiClass.getX1().size());
+
+
+        System.out.println("Время" + distributionX.getInitialX());
+        System.out.println("Число" + distributionX.getQuatity());
+        System.out.println("Вероятность" + distributionX.getP(distributionX.getQuatity(), xiClass.getPersonQuantity())+"\n");
+        System.out.println("Кумулятивна" + ((ModelingAbstract) distributionX).getKumulativeP(distributionX.getP()));
+        System.out.println("Случайные числа "+ ((ModelingAbstract) distributionX).getRandomValue());
+
+
+
+
 
     }
 

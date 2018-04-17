@@ -16,6 +16,12 @@ public class DistributionAbstract {
         this.quatity = new ArrayList<>(initialXsize);
     }
 
+    public DistributionAbstract(ArrayList<Double> initialX, int initialXsize, ArrayList<Integer> destributionByDefault) {
+        this.initialX = initialX;
+        p = new ArrayList<>(initialXsize);
+        quatity = destributionByDefault;
+    }
+
     private ArrayList<Double> initialX;
     private ArrayList<Double> p;
     private ArrayList<Integer> quatity;
