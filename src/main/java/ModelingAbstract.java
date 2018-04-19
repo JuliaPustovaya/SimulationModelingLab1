@@ -2,7 +2,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 
-
 public class ModelingAbstract extends DistributionAbstract {
 
     private ArrayList<Double> kumulativeP;
@@ -20,12 +19,11 @@ public class ModelingAbstract extends DistributionAbstract {
         this.randomValue = new ArrayList<>(initialX.size());
     }
 
-
     public ArrayList<Double> getKumulativeP(ArrayList<Double> p) {
         double sum = 0;
         for (int i = 0; i < p.size(); i++) {
             sum = sum + p.get(i);
-            kumulativeP.add(new BigDecimal(sum).setScale(2, RoundingMode.UP).doubleValue());
+            kumulativeP.add(new BigDecimal(sum).setScale(2, RoundingMode.HALF_DOWN).doubleValue());
 
         }
         return kumulativeP;

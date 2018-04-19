@@ -1,6 +1,6 @@
 public class MainClass {
     public static void main(String[] args) {
-      XiClass xiClass = new XiClass();
+        XiClass xiClass = new XiClass();
        /*   System.out.println("***Модель появления прохожих. Интервалы между моментами появления***".toUpperCase());
         DistributionAbstract distributionX1 = new DistributionX1(xiClass.getX1(), xiClass.getX1().size());
         // distributionX1.generateQuantity(xiClass.getPersonQuantity(),xiClass.getX1().size());
@@ -28,18 +28,29 @@ public class MainClass {
         System.out.println("Вероятность" + distributionX2.getP(distributionX2.getQuatity(), xiClass.getPersonQuantity())+"\n");
 
 */
-        DistributionAbstract distributionX = new ModelingAbstract(xiClass.getX1(), xiClass.getX1().size(),new DestributionByDefault().getQuantityX1());
-     //  distributionX.generateQuantity(xiClass.getPersonQuantity(),xiClass.getX1().size());
+        System.out.println("***Модель появления прохожих. Интервалы между моментами появления***".toUpperCase());
+        DistributionAbstract X1 = new ModelingAbstract(xiClass.getX1(), xiClass.getX1().size(), new DestributionByDefault().getQuantityX1());
+        System.out.println("Время" + X1.getInitialX());
+        System.out.println("Число" + X1.getQuatity());
+        System.out.println("Вероятность" + X1.getP(X1.getQuatity(), xiClass.getPersonQuantity()));
+        System.out.println("Кумулятивна" + ((ModelingAbstract) X1).getKumulativeP(X1.getP()));
+        System.out.println("Случайные числа " + ((ModelingAbstract) X1).getRandomValue()+ "\n");
 
+        System.out.println("***Желание дать интервью***".toUpperCase());
+        DistributionAbstract X2 = new ModelingAbstract(xiClass.getX2(), xiClass.getX2().size(), new DestributionByDefault().getQuantityX2());
+        System.out.println("Варианты ответов да-1/нет-0 " + X2.getInitialX());
+        System.out.println("Кол-во ответов" + X2.getQuatity());
+        System.out.println("Вероятность" + X2.getP(X2.getQuatity(), xiClass.getPersonQuantity()) );
+        System.out.println("Кумулятивна" + ((ModelingAbstract) X2).getKumulativeP(X2.getP()));
+        System.out.println("Случайные числа " + ((ModelingAbstract) X2).getRandomValue()+ "\n");
 
-        System.out.println("Время" + distributionX.getInitialX());
-        System.out.println("Число" + distributionX.getQuatity());
-        System.out.println("Вероятность" + distributionX.getP(distributionX.getQuatity(), xiClass.getPersonQuantity())+"\n");
-        System.out.println("Кумулятивна" + ((ModelingAbstract) distributionX).getKumulativeP(distributionX.getP()));
-        System.out.println("Случайные числа "+ ((ModelingAbstract) distributionX).getRandomValue());
-
-
-
+        System.out.println("***Продолжителность интервью***".toUpperCase());
+        DistributionAbstract X3 = new ModelingAbstract(xiClass.getX3(), xiClass.getX3().size(), new DestributionByDefault().getQuantityX3());
+         System.out.println("Продолжительность интевью " + X3.getInitialX());
+        System.out.println("Кол-во интевью " + X3.getQuatity());
+        System.out.println("Вероятность" + X3.getP(X3.getQuatity(), xiClass.getPersonQuantity()));
+        System.out.println("Кумулятивна" + ((ModelingAbstract) X3).getKumulativeP(X3.getP()));
+        System.out.println("Случайные числа " + ((ModelingAbstract) X3).getRandomValue()+ "\n");
 
 
     }
