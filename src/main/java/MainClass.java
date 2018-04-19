@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class MainClass {
     public static void main(String[] args) {
         XiClass xiClass = new XiClass();
@@ -34,7 +36,7 @@ public class MainClass {
         System.out.println("Число" + X1.getQuatity());
         System.out.println("Вероятность" + X1.getP(X1.getQuatity(), xiClass.getPersonQuantity()));
         System.out.println("Кумулятивна" + ((ModelingAbstract) X1).getKumulativeP(X1.getP()));
-        System.out.println("Случайные числа " + ((ModelingAbstract) X1).getRandomValue()+ "\n");
+        System.out.println("Случайные числа-пары " + ((ModelingAbstract) X1).getRandomValue()+ "\n");
 
         System.out.println("***Желание дать интервью***".toUpperCase());
         DistributionAbstract X2 = new ModelingAbstract(xiClass.getX2(), xiClass.getX2().size(), new DestributionByDefault().getQuantityX2());
@@ -42,7 +44,7 @@ public class MainClass {
         System.out.println("Кол-во ответов" + X2.getQuatity());
         System.out.println("Вероятность" + X2.getP(X2.getQuatity(), xiClass.getPersonQuantity()) );
         System.out.println("Кумулятивна" + ((ModelingAbstract) X2).getKumulativeP(X2.getP()));
-        System.out.println("Случайные числа " + ((ModelingAbstract) X2).getRandomValue()+ "\n");
+        System.out.println("Случайные числа-пары " + ((ModelingAbstract) X2).getRandomValue()+ "\n");
 
         System.out.println("***Продолжителность интервью***".toUpperCase());
         DistributionAbstract X3 = new ModelingAbstract(xiClass.getX3(), xiClass.getX3().size(), new DestributionByDefault().getQuantityX3());
@@ -50,8 +52,13 @@ public class MainClass {
         System.out.println("Кол-во интевью " + X3.getQuatity());
         System.out.println("Вероятность" + X3.getP(X3.getQuatity(), xiClass.getPersonQuantity()));
         System.out.println("Кумулятивна" + ((ModelingAbstract) X3).getKumulativeP(X3.getP()));
-        System.out.println("Случайные числа " + ((ModelingAbstract) X3).getRandomValue()+ "\n");
+        System.out.println("Случайные числа-пары " + ((ModelingAbstract) X3).getRandomValue()+ "\n");
 
+        System.out.println("***Result Table***");
+        ResultTable resultTable= new ResultTable();
+        resultTable.formtaTable(xiClass.getX1Random(),xiClass.getX2Random(),xiClass.getX3Random(),
+        xiClass.getX1(),xiClass.getX2(),xiClass.getX3(),
+                ((ModelingAbstract) X1).getRandomValue(),((ModelingAbstract) X2).getRandomValue(),((ModelingAbstract) X3).getRandomValue());
 
     }
 

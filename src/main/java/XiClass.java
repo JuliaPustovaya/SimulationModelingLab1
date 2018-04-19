@@ -33,8 +33,8 @@ public class XiClass {
         x1.add((double) 4);
         x1.add((double) 5);
 //default yes/no
-        x2.add((double) 0);
         x2.add((double) 1);
+        x2.add((double) 0);
         //default duration of interview
         x3.add((double) 2);
         x3.add((double) 4);
